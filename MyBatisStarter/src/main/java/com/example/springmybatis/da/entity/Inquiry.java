@@ -1,9 +1,8 @@
 package com.example.springmybatis.da.entity;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
-import java.util.List;
+
+import lombok.Data;
 
 /**
  * 問合せ

@@ -2,11 +2,16 @@ package com.example.springmybatis.da.mapper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.apache.ibatis.session.RowBounds;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.example.springmybatis.da.query.InquiryTagSelectQuery;
+import com.example.springmybatis.da.query.InquiryTagSelectQuery.OrderByField;
+import com.example.springmybatis.da.query.InquiryTagSelectQuery.SortOrder;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -28,21 +33,21 @@ class InquiryTagMapperTest {
 
     @Test
     void select() {
-        // TODO ハンズオン 2-3 コメントアウトを解除してテストを実行
-//        var query = new InquiryTagSelectQuery();
-//
-//        query.setDescription("問合せ");
-//
-//        query.addOrderCondition(OrderByField.INQUIRY_ID, SortOrder.DESC);
-//        query.addOrderCondition(OrderByField.ID, SortOrder.ASC);
-//
-//        var list = inquiryTagMapper.select(query, new RowBounds(0, 100));
-//
-//        assertEquals(2, list.size());
-//
-//        var inquiryTag = list.get(0);
-//
-//        assertEquals(7, inquiryTag.getId());
+      // TODO ハンズオン 2-3 コメントアウトを解除してテストを実行
+        var query = new InquiryTagSelectQuery();
+
+        query.setDescription("問合せ");
+
+        query.addOrderCondition(OrderByField.INQUIRY_ID, SortOrder.DESC);
+        query.addOrderCondition(OrderByField.ID, SortOrder.ASC);
+
+        var list = inquiryTagMapper.select(query, new RowBounds(0, 100));
+
+        assertEquals(2, list.size());
+
+        var inquiryTag = list.get(0);
+
+        assertEquals(7, inquiryTag.getId());
     }
 
 

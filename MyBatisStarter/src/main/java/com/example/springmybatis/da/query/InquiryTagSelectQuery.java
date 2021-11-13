@@ -1,12 +1,15 @@
 package com.example.springmybatis.da.query;
 
-import lombok.*;
-import lombok.experimental.Accessors;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 public class InquiryTagSelectQuery {
