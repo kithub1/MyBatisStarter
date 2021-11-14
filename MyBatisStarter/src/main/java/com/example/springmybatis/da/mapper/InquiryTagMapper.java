@@ -7,6 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Repository;
 
 import com.example.springmybatis.da.entity.InquiryTag;
+import com.example.springmybatis.da.entity.InquiryTagView;
 import com.example.springmybatis.da.query.InquiryTagSelectQuery;
 
 @Repository
@@ -28,8 +29,10 @@ public interface InquiryTagMapper {
 	// TODO ハンズオン 3-1-3 deleteメソッドを定義
 	void delete(int id);
 
-	// TODO ハンズオン 4-1 findViewメソッドを定義
+	// TODO ハンズオン 4-1 findViewメソッドを定義（二回のSQLを発行する）
+	InquiryTagView findView(int id);
 
-	// TODO ハンズオン 4-5 findView2メソッドを定義
+	// TODO ハンズオン 4-5 findView2メソッドを定義（一括取得）
+	InquiryTagView findView2(int id);
 
 }
