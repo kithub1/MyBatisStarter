@@ -1,11 +1,12 @@
 package com.example.springmybatis.transaction;
 
-import com.example.springmybatis.da.entity.User;
-import com.example.springmybatis.da.mapper.UserMapper;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.example.springmybatis.da.entity.User;
+import com.example.springmybatis.da.mapper.UserMapper;
 
 @Service
 public class TransactionTestService {
@@ -16,7 +17,7 @@ public class TransactionTestService {
         this.userMapper = userMapper;
     }
 
-    @Transactional(noRollbackFor = ToManyUsersException.class)
+    @Transactional(noRollbackFor = TooManyUsersException.class)
     public void rollbackTest(List<User> users) {
         if (users == null) return;
         boolean toManyUsers = false;
@@ -30,6 +31,6 @@ public class TransactionTestService {
 
         insertUsers.forEach(userMapper::insert);
 
-        if (toManyUsers) throw new ToManyUsersException();
+        if (toManyUsers) throw new TooManyUsersException();
     }
 }
